@@ -1,0 +1,20 @@
+// Procedure to calculate the dot product of two vectors v1 and v2
+PROCEDURE dot_product(v1, v2: ARRAY_OF_INTEGERS; VAR ps: INTEGER);
+VAR
+    //Declaration of variables
+    i: INTEGER; // Declare i as an integer
+BEGIN
+    // Initialize the dot product variable
+    ps := 0;
+
+    // Check if the lengths of v1 and v2 are the same
+    IF LENGTH(v1) = LENGTH(v2) THEN
+        // Calculate the dot product
+        FOR i := 0 TO LENGTH(v1) - 1 DO
+            ps := ps + (v1[i] * v2[i]);
+        END FOR;
+    ELSE
+        // Set the ps to 0 if the lengths of v1 and v2 are not equal
+        ps := 0;
+    END IF;
+END PROCEDURE;
