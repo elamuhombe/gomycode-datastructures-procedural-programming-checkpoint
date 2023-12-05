@@ -1,0 +1,55 @@
+ALGORITHM calculate_sum_of_distinct_elements
+VAR
+   //Declaration of variables
+   array1, array2, array3 : ARRAY_OF_INTEGER;// declare variables with the name “array1", "array2" and "array3" of type “ARRAY_OF_INTEGER”
+   i, j, sum : INTEGER;// // declare variables with the name “i”, "j" and "sum" of type “integer”
+
+BEGIN
+//Initialize variable 
+   array3 :=[];
+   i := 0;
+   j := 0;
+   sum := 0;
+
+   //Read values of array1 and array2
+   Read (array1);
+   Read (array2);
+
+// Iterate through each element of array1
+FOR i FROM 0 TO LENGTH(array1) - 1 DO{
+ // Iterate through each element of array2
+   FOR j FROM 0 TO LENGTH(array2) - 1 DO{
+      // Compare if values of array1 are not equal to array2
+      IF array1[i] != array2[j] THEN
+         // If the values are not equal, add array1[i] to array3
+         array3.push(array1[i]);
+      ENDIF
+   }
+   ENDFOR
+   ENDFOR
+}
+
+// Iterate through each element of array2
+FOR j FROM 0 TO LENGTH(array2) - 1 DO{
+ // Iterate through each element of array2
+   FOR i FROM 0 TO LENGTH(array1) - 1 DO{
+      // Compare if values of array1 are not equal to array2
+      IF array2[j] != array1[i] THEN
+         // If the values are not equal, add array1[i] to array3
+         array3.push(array2[j]);
+      ENDIF
+   }
+   ENDFOR
+   ENDFOR
+}
+
+//Iterate through array3 and calculate the sum of the elements
+FOR i := 0 TO LENGTH(array3) - 1 D0{
+   sum = sum + array3[i];
+}
+
+//Display the sum
+OUTPUT: sum;
+
+END
+
